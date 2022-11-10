@@ -69,12 +69,15 @@ public class Insects : RitualAttachableOutcomeEffectWorker
             return true;
         }
 
-        return DefDatabase<PawnKindDef>.AllDefs
-            .Where((pawnKindDef) => pawnKindDef.RaceProps.Insect &&
-            !pawnKindDef.defName.StartsWith("VFEI_VatGrown", StringComparison.Ordinal) &&
-            pawnKindDef.RaceProps.wildness <= 0.8 &&
-            map.mapTemperature.SeasonAndOutdoorTemperatureAcceptableFor(pawnKindDef.race) &&
-            Validator(pawnKindDef.race.comps)).ToList();
+        return (
+            from pawnKindDef in DefDatabase<PawnKindDef>.AllDefs.AsParallel()
+            where 
+                pawnKindDef.RaceProps.Insect &&
+                !pawnKindDef.defName.StartsWith("VFEI_VatGrown", StringComparison.Ordinal) &&
+                pawnKindDef.RaceProps.wildness <= 0.8 &&
+                map.mapTemperature.SeasonAndOutdoorTemperatureAcceptableFor(pawnKindDef.race) &&
+                Validator(pawnKindDef.race.comps)
+            select pawnKindDef).ToList();
     }
 
     private static IntVec3 FindRootTunnelLoc(Map map)

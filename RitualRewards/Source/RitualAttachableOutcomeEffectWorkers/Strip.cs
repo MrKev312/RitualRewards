@@ -15,10 +15,13 @@ public class Strip : RitualAttachableOutcomeEffectWorker
         if (outcome is null)
             throw new ArgumentNullException(nameof(outcome));
 
-        extraOutcomeDesc = "";
+        extraOutcomeDesc = string.Empty;
         bool flag = false;
         float chance = outcome.BestPositiveOutcome(jobRitual) ? 0.33f : 0.75f;
-        IEnumerable<Pawn> enumerable = jobRitual.Map.mapPawns.AllPawnsSpawned.Where((x) => x.Faction.HostileTo(Faction.OfPlayer));
+        IEnumerable<Pawn> enumerable =
+            from p in jobRitual.Map.mapPawns.AllPawnsSpawned
+            where p.Faction.HostileTo(Faction.OfPlayer)
+            select p;
         if (!enumerable.Any())
             return;
 

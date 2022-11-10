@@ -19,7 +19,10 @@ public class Harvest : RitualAttachableOutcomeEffectWorker
         HashSet<string> hashSet = new();
         int num2 = 0;
         List<Zone> allZones = jobRitual.Map.zoneManager.AllZones;
-        List<Zone> list = allZones.Where((x) => x.GetType() == typeof(Zone_Growing)).InRandomOrder().ToList();
+        List<Zone> list = (
+            from x in allZones.AsParallel()
+            where x.GetType() == typeof(Zone_Growing)
+            select x).InRandomOrder().ToList();
         foreach (Zone item in list)
         {
             string label = ((Zone_Growing)item).GetPlantDefToGrow().label;
