@@ -42,7 +42,6 @@ public class CallVenerated : RitualAttachableOutcomeEffectWorker
         Map map = jobRitual.Map;
         if (!RCellFinder.TryFindRandomPawnEntryCell(out IntVec3 result, map, CellFinder.EdgeRoadChance_Animal))
         {
-            if (jobRitual.Ritual.ideo.VeneratedAnimals.Count == 0)
             extraOutcomeDesc = def.letterInfoText + "VeneratedAnimalFailNoEntry".Translate();
             return;
         }
