@@ -2,7 +2,7 @@
 <ModMetaData>
   <name>More Ritual Rewards (1.4)</name>
   <author>Sinnamon, MrKev</author>
-  <packageId>Sinnamon.MoreRitualRewards1.4</packageId>
+  <packageId>Sinnamon.MoreRitualRewards</packageId>
   <url>https://github.com/MrKev312/RitualRewards</url>
   <supportedVersions>
     <li>1.4</li>

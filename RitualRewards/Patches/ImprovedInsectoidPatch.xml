@@ -7,14 +7,12 @@
 
 		<match Class="PatchOperationSequence">
 			<operations>
-
 				<li Class="PatchOperationAdd">
-					<xpath>/Defs/RitualAttachableOutcomeEffectDef[defName="Sinnamon_SummonInsects"]/requiredMemeAny</xpath>
+					<xpath>/Defs/RitualAttachableOutcomeEffectDef[defName="SummonInsects"]/requiredMemeAny</xpath>
 					<value>
 						<li>InsectoidPrimacy</li>
 					</value>
 				</li>
-
 			</operations>
 		</match>
 	</Operation>

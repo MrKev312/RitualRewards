@@ -1,22 +1,28 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
 
-namespace RitualRewards.Sinnamon_Ritual;
+namespace RitualRewards.RitualAttachableOutcomeEffectWorkers;
 
-public class RitualAttachableOutcomeEffectWorker_Ambrosia : RitualAttachableOutcomeEffectWorker
+public class Ambrosia : RitualAttachableOutcomeEffectWorker
 {
     public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
     {
+        if (jobRitual is null)
+            throw new ArgumentNullException(nameof(jobRitual));
+        if (outcome is null)
+            throw new ArgumentNullException(nameof(outcome));
+
         IncidentParms parms = new()
         {
             target = jobRitual.Map,
             points = outcome.BestPositiveOutcome(jobRitual) ? 1510 : 1005
         };
-        IncidentDef incidentDef = IncidentDef.Named("Sinnamon_SmallAmbrosiaSprout");
+        IncidentDef incidentDef = IncidentDef.Named("SmallAmbrosiaSprout");
         if (!incidentDef.Worker.CanFireNow(parms))
         {
-            extraOutcomeDesc = "Sinnamon_AmbrosiaFailed";
+            extraOutcomeDesc = "AmbrosiaFailed";
             return;
         }
 

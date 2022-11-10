@@ -8,8 +8,8 @@ internal static class PatchDriver
 {
     static PatchDriver()
     {
-        Log.Message("Sinnamon loaded!");
-        Harmony harmony = new("Sinnamon.RitualReward");
+        Log.Message("RitualReward loaded!");
+        Harmony harmony = new("RitualReward");
         harmony.PatchAll();
     }
 }

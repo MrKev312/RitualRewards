@@ -1,14 +1,20 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
 
-namespace RitualRewards.Sinnamon_Ritual;
+namespace RitualRewards.RitualAttachableOutcomeEffectWorkers;
 
-public class RitualAttachableOutcomeEffectWorker_Harvest : RitualAttachableOutcomeEffectWorker
+public class Harvest : RitualAttachableOutcomeEffectWorker
 {
     public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
     {
+        if (jobRitual is null)
+            throw new ArgumentNullException(nameof(jobRitual));
+        if (outcome is null)
+            throw new ArgumentNullException(nameof(outcome));
+
         float num = outcome.BestPositiveOutcome(jobRitual) ? 20 : 10;
         HashSet<string> hashSet = new();
         int num2 = 0;
@@ -47,6 +53,6 @@ public class RitualAttachableOutcomeEffectWorker_Harvest : RitualAttachableOutco
                 break;
         }
 
-        extraOutcomeDesc = "Sinnamon_HarvestResult".Translate(num2, string.Join(", ", hashSet));
+        extraOutcomeDesc = "HarvestResult".Translate(num2, string.Join(", ", hashSet));
     }
 }

@@ -2,13 +2,13 @@
 <Defs>
 
   <IncidentDef>
-    <defName>Sinnamon_SmallAmbrosiaSprout</defName>
+    <defName>SmallAmbrosiaSprout</defName>
     <label>small ambrosia patch</label>
     <category>Misc</category>
     <targetTags>
       <li>Map_PlayerHome</li>
     </targetTags>
-    <workerClass>RitualRewards.Sinnamon_Ritual.IncidentWorker_SmallAmbrosiaSprout</workerClass>
+    <workerClass>RitualRewards.IncidentWorkers.SmallAmbrosiaSprout</workerClass>
     <baseChance>0</baseChance>
     <letterLabel>Ambrosia sprout</letterLabel>
     <letterText>A small patch of the mysterious ambrosia bush has sprouted nearby! If you wait for the plants to grow, you'll be able to harvest the delicious, pleasurable, and slightly addictive fruit.</letterText>

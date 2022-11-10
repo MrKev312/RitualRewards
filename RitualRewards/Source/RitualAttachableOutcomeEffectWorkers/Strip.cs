@@ -1,14 +1,20 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
 
-namespace RitualRewards.Sinnamon_Ritual;
+namespace RitualRewards.RitualAttachableOutcomeEffectWorkers;
 
-public class RitualAttachableOutcomeEffectWorker_Strip : RitualAttachableOutcomeEffectWorker
+public class Strip : RitualAttachableOutcomeEffectWorker
 {
     public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
     {
+        if (jobRitual is null)
+            throw new ArgumentNullException(nameof(jobRitual));
+        if (outcome is null)
+            throw new ArgumentNullException(nameof(outcome));
+
         extraOutcomeDesc = "";
         bool flag = false;
         float chance = outcome.BestPositiveOutcome(jobRitual) ? 0.33f : 0.75f;
@@ -26,6 +32,6 @@ public class RitualAttachableOutcomeEffectWorker_Strip : RitualAttachableOutcome
         }
 
         if (flag)
-            extraOutcomeDesc = def.letterInfoText + (outcome.BestPositiveOutcome(jobRitual) ? "Sinnamon_stripGood".Translate() : "Sinnamon_stripGreat".Translate());
+            extraOutcomeDesc = def.letterInfoText + (outcome.BestPositiveOutcome(jobRitual) ? "stripGood".Translate() : "stripGreat".Translate());
     }
 }

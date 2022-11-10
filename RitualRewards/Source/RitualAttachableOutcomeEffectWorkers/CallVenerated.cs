@@ -1,11 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
 
-namespace RitualRewards.Sinnamon_Ritual;
+namespace RitualRewards.RitualAttachableOutcomeEffectWorkers;
 
-public class RitualAttachableOutcomeEffectWorker_CallVenerated : RitualAttachableOutcomeEffectWorker
+public class CallVenerated : RitualAttachableOutcomeEffectWorker
 {
     private static Pawn SpawnAnimal(PawnKindDef kind, Gender? gender, IntVec3 loc, Map map)
     {
@@ -26,6 +27,13 @@ public class RitualAttachableOutcomeEffectWorker_CallVenerated : RitualAttachabl
 
     public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
     {
+        if (jobRitual is null)
+            throw new ArgumentNullException(nameof(jobRitual));
+        if (outcome is null)
+            throw new ArgumentNullException(nameof(outcome));
+        if (letterLookTargets is null)
+            throw new ArgumentNullException(nameof(letterLookTargets));
+
         extraOutcomeDesc = "";
         bool flag = outcome.BestPositiveOutcome(jobRitual);
         if (!flag && Rand.Chance(0.7f))
@@ -44,7 +52,7 @@ public class RitualAttachableOutcomeEffectWorker_CallVenerated : RitualAttachabl
                 pawnKindDef = source.Where((x) => map.mapTemperature.SeasonAndOutdoorTemperatureAcceptableFor(x.race)).RandomElementByWeight(SelectionChance);
                 if (pawnKindDef == null)
                 {
-                    extraOutcomeDesc = def.letterInfoText + "Sinnamon_VeneratedAnimalFailTemperature".Translate(outcome.label);
+                    extraOutcomeDesc = def.letterInfoText + "VeneratedAnimalFailTemperature".Translate(outcome.label);
                     return;
                 }
             }
@@ -54,25 +62,25 @@ public class RitualAttachableOutcomeEffectWorker_CallVenerated : RitualAttachabl
             {
                 if (map.mapTemperature.SeasonAndOutdoorTemperatureAcceptableFor(pawnKindDef.race))
                 {
-                    extraOutcomeDesc = "Sinnamon_VeneratedAnimalCalledPair".Translate(pawnKindDef.label);
+                    extraOutcomeDesc = "VeneratedAnimalCalledPair".Translate(pawnKindDef.label);
                     letterLookTargets.targets.Add(SpawnAnimal(pawnKindDef, Gender.Male, result, map));
                     letterLookTargets.targets.Add(SpawnAnimal(pawnKindDef, Gender.Female, result, map));
                 }
                 else
                 {
-                    extraOutcomeDesc = "Sinnamon_VeneratedAnimalCalledBadWeather".Translate(pawnKindDef.label);
+                    extraOutcomeDesc = "VeneratedAnimalCalledBadWeather".Translate(pawnKindDef.label);
                     letterLookTargets.targets.Add(SpawnAnimal(pawnKindDef, null, result, map));
                 }
             }
             else
             {
                 letterLookTargets.targets.Add(SpawnAnimal(pawnKindDef, null, result, map));
-                extraOutcomeDesc = "Sinnamon_VeneratedAnimalCalled".Translate(pawnKindDef.label);
+                extraOutcomeDesc = "VeneratedAnimalCalled".Translate(pawnKindDef.label);
             }
         }
         else
         {
-            extraOutcomeDesc = def.letterInfoText + "Sinnamon_VeneratedAnimalFailNoEntry".Translate();
+            extraOutcomeDesc = def.letterInfoText + "VeneratedAnimalFailNoEntry".Translate();
         }
     }
 }

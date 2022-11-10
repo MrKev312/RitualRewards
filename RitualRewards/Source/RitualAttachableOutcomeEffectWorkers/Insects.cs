@@ -4,9 +4,9 @@ using System.Linq;
 using RimWorld;
 using Verse;
 
-namespace RitualRewards.Sinnamon_Ritual;
+namespace RitualRewards.RitualAttachableOutcomeEffectWorkers;
 
-public class RitualAttachableOutcomeEffectWorker_Insects : RitualAttachableOutcomeEffectWorker
+public class Insects : RitualAttachableOutcomeEffectWorker
 {
     private const float bestOutcome = 10f;
 
@@ -14,11 +14,16 @@ public class RitualAttachableOutcomeEffectWorker_Insects : RitualAttachableOutco
 
     public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
     {
+        if (jobRitual is null)
+            throw new ArgumentNullException(nameof(jobRitual));
+        if (outcome is null)
+            throw new ArgumentNullException(nameof(outcome));
+
         Map map = jobRitual.Map;
         IntVec3 intVec = FindRootTunnelLoc(map);
         if (intVec == IntVec3.Invalid)
         {
-            extraOutcomeDesc = "Sinnamon_InsectNoExit".Translate();
+            extraOutcomeDesc = "InsectNoExit".Translate();
             return;
         }
 
@@ -64,15 +69,20 @@ public class RitualAttachableOutcomeEffectWorker_Insects : RitualAttachableOutco
             return true;
         }
 
-        return DefDatabase<PawnKindDef>.AllDefs.Where((x) => x.RaceProps.Insect && !x.defName.StartsWith("VFEI_VatGrown") && x.RaceProps.wildness <= 0.8 && map.mapTemperature.SeasonAndOutdoorTemperatureAcceptableFor(x.race) && Validator(x.race.comps)).ToList();
+        return DefDatabase<PawnKindDef>.AllDefs
+            .Where((pawnKindDef) => pawnKindDef.RaceProps.Insect &&
+            !pawnKindDef.defName.StartsWith("VFEI_VatGrown", StringComparison.Ordinal) &&
+            pawnKindDef.RaceProps.wildness <= 0.8 &&
+            map.mapTemperature.SeasonAndOutdoorTemperatureAcceptableFor(pawnKindDef.race) &&
+            Validator(pawnKindDef.race.comps)).ToList();
     }
 
     private static IntVec3 FindRootTunnelLoc(Map map)
     {
-        return InfestationCellFinder.TryFindCell(out IntVec3 cell, map)
-            ? cell
-            : RCellFinder.TryFindRandomCellNearTheCenterOfTheMapWith((x) => x.Standable(map) && !x.Fogged(map), map, out cell)
-            ? cell
-            : IntVec3.Invalid;
+        if (InfestationCellFinder.TryFindCell(out IntVec3 cell, map))
+            return cell;
+        if (RCellFinder.TryFindRandomCellNearTheCenterOfTheMapWith((vector) => vector.Standable(map) && !vector.Fogged(map), map, out cell))
+            return cell;
+        return IntVec3.Invalid;
     }
 }

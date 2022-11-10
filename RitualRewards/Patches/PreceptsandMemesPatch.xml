@@ -7,14 +7,12 @@
 
 		<match Class="PatchOperationSequence">
 			<operations>
-
 				<li Class="PatchOperationAdd">
-					<xpath>/Defs/RitualAttachableOutcomeEffectDef[defName="Sinnamon_RitualTaunt"]/requiredMemeAny</xpath>
+					<xpath>/Defs/RitualAttachableOutcomeEffectDef[defName="RitualTaunt"]/requiredMemeAny</xpath>
 					<value>
 						<li>Necrolatry</li>
 					</value>
 				</li>
-
 			</operations>
 		</match>
 	</Operation>

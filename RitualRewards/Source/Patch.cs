@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using RimWorld;
-using RitualRewards.Sinnamon_Ritual;
 using Verse;
 
 namespace RitualRewards;
@@ -14,14 +13,14 @@ internal static class Patch
     private static void Postfix(ref AcceptanceReport __result, ref RitualAttachableOutcomeEffectDef __instance, Precept_Ritual ritual)
 #pragma warning restore IDE0051 // Remove unused private members
     {
-        if (!__instance.HasModExtension<Sinnamon_RitualExtension>())
+        if (!__instance.HasModExtension<RitualExtension>())
             return;
 
-        List<MemeDef> forbiddenMemeAny = __instance.GetModExtension<Sinnamon_RitualExtension>().forbiddenMemeAny;
+        IList<MemeDef> forbiddenMemeAny = __instance.GetModExtension<RitualExtension>().ForbiddenMemeAny;
         if (!forbiddenMemeAny.NullOrEmpty() && ritual.ideo.memes.SharesElementWith(forbiddenMemeAny))
         {
             string text = forbiddenMemeAny.Select((m) => m.label.ResolveTags()).ToCommaList();
-            __result = "Sinnamon_MemeConflicts".Translate() + text;
+            __result = "MemeConflicts".Translate() + text;
         }
     }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using RimWorld;
 using Verse;
 
-namespace RitualRewards.Sinnamon_Ritual;
+namespace RitualRewards.IncidentWorkers;
 
-public class IncidentWorker_SmallAmbrosiaSprout : IncidentWorker
+public class SmallAmbrosiaSprout : IncidentWorker
 {
     private const int MinRoomCells = 32;
 
@@ -13,6 +13,9 @@ public class IncidentWorker_SmallAmbrosiaSprout : IncidentWorker
 
     protected override bool CanFireNowSub(IncidentParms parms)
     {
+        if (parms is null)
+            throw new ArgumentNullException(nameof(parms));
+
         if (!base.CanFireNowSub(parms))
             return false;
 
@@ -23,6 +26,9 @@ public class IncidentWorker_SmallAmbrosiaSprout : IncidentWorker
 
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
+        if (parms is null)
+            throw new ArgumentNullException(nameof(parms));
+
         Map map = (Map)parms.target;
         if (!TryFindRootCell(map, out IntVec3 cell))
             return false;

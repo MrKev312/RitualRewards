@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <WeatherDef>
-    <defName>Sinnamon_Windy</defName>
+    <defName>Windy</defName>
     <label>whirlwind</label>
     <description>Wind is increasing the wind turbine output.</description>
 	<temperatureRange>99~100</temperatureRange>

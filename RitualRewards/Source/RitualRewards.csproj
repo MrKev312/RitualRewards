@@ -8,7 +8,7 @@
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	</PropertyGroup>
 	<PropertyGroup>
-		<AnalysisLevel>latest-all</AnalysisLevel>
+		<AnalysisLevel>6.0-all</AnalysisLevel>
 		<EnforceCodeStyleInBuild>False</EnforceCodeStyleInBuild>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<OutputPath>..\Assemblies\</OutputPath>

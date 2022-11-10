@@ -3,9 +3,9 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace RitualRewards.Sinnamon_Ritual;
+namespace RitualRewards.GameConditions;
 
-public class Sinnamon_GameCondition_Aurora : GameCondition
+public class Aurora : GameCondition
 {
     private int curColorIndex = -1;
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_AmbrosiaBlessing</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Ambrosia</workerClass>
+    <defName>AmbrosiaBlessing</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Ambrosia</workerClass>
     <label>ambrosia sprout</label>
     <effectDesc>a small number of ambrosia will sprout, if they can.</effectDesc>
     <letterInfoText>The earth answered your request for pleasure.</letterInfoText>
@@ -15,8 +15,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_RitualMeteor</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Meteor</workerClass>
+    <defName>RitualMeteor</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Meteor</workerClass>
     <label>asteroid mining</label>
     <effectDesc>causes a meteor to drop, which you can mine.</effectDesc>
     <letterInfoText>The meteor has been called.</letterInfoText>
@@ -24,8 +24,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_Aurora</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Aurora</workerClass>
+    <defName>Aurora</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Aurora</workerClass>
     <label>(WIP)aurora borealis</label>
     <effectDesc>causes the aurora to appear for a few days.</effectDesc>
     <letterInfoText>Aurora lights up the sky, and it will last for</letterInfoText>
@@ -33,24 +33,23 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_CallVenerated</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_CallVenerated</workerClass>
+    <defName>CallVenerated</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.CallVenerated</workerClass>
     <label>call venerated animal</label>
     <effectDesc>lure a venerated animal.</effectDesc>
     <modExtensions>
-      <li Class="RitualRewards.Sinnamon_Ritual.Sinnamon_RitualExtension">
+      <li Class="RitualRewards.Ritual.RitualExtension">
         <forbiddenMemeAny>
           <li>HumanPrimacy</li>
         </forbiddenMemeAny>
       </li>
     </modExtensions>
   </RitualAttachableOutcomeEffectDef>
-
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_DustToDust</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Dust</workerClass>
+    <defName>DustToDust</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Dust</workerClass>
     <label>dust to dust</label>
     <effectDesc>rotting or desiccated corpses will be destroyed.</effectDesc>
     <letterInfoText>Ashes to ashes, dust to dust. </letterInfoText>
@@ -58,8 +57,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_EclipseBlessing</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Eclipse</workerClass>
+    <defName>EclipseBlessing</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Eclipse</workerClass>
     <label>extingush the Sun</label>
     <effectDesc>it causes the eclipse, ending the solar flare immediately.</effectDesc>
     <letterInfoText>The sun is cowering from your rituals.</letterInfoText>
@@ -72,8 +71,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_RitualTrader</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Trader</workerClass>
+    <defName>RitualTrader</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Trader</workerClass>
     <label>invite trader</label>
     <effectDesc>gain attention of a nearby tradership to allow your colones to trade with using the comm console.</effectDesc>
     <letterInfoText>The tradership noticed your presense.</letterInfoText>
@@ -81,8 +80,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_RitualStrip</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Strip</workerClass>
+    <defName>RitualStrip</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Strip</workerClass>
     <label>mass strip</label>
     <effectDesc>disarm some of enemies apparels.</effectDesc>
     <requiredMemeAny>
@@ -92,8 +91,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_Raincalling</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_RainBless</workerClass>
+    <defName>Raincalling</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.RainBless</workerClass>
     <label>Raincalling</label>
     <effectDesc>starts rain, and reduce the duration of toxic fallout and volcanic winter.</effectDesc>
     <letterInfoText>Clouds gather upon your colony.</letterInfoText>
@@ -101,8 +100,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_RitualSpaceshipChunk</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_SpaceshipChunk</workerClass>
+    <defName>RitualSpaceshipChunk</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.SpaceshipChunk</workerClass>
     <label>spaceship chunk call</label>
     <effectDesc>causes spaceship chunks to drop to deconstruct and gain resources.</effectDesc>
     <letterInfoText>An orbiting piece of spaceship chunk has been brought down.</letterInfoText>
@@ -110,8 +109,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_SummonInsects</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Insects</workerClass>
+    <defName>SummonInsects</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Insects</workerClass>
     <label>summon insects</label>
     <effectDesc>small number of wild insects will be spawned, which can be tamed.</effectDesc>
     <letterInfoText>Insects were intrigued and decided to surface to see what is going on.</letterInfoText>
@@ -124,13 +123,13 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_SunBlessing</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_SunBless</workerClass>
+    <defName>SunBlessing</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.SunBless</workerClass>
     <label>Suncalling</label>
     <effectDesc>it immediately ends rain and eclipse, and reduces the duration of coldsnap, volcanic winter. </effectDesc>
     <letterInfoText>The sun shines upon your colony.</letterInfoText>
     <modExtensions>
-      <li Class="RitualRewards.Sinnamon_Ritual.Sinnamon_RitualExtension">
+      <li Class="RitualRewards.Ritual.RitualExtension">
         <forbiddenMemeAny>
           <li>Blindsight</li>
           <li>Darkness</li>
@@ -142,8 +141,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_RitualTaunt</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Taunt</workerClass>
+    <defName>RitualTaunt</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Taunt</workerClass>
     <label>taunt enemies</label>
     <effectDesc>causes a relatively small group of enemies to attack your colony.</effectDesc>
     <letterInfoText>Your enemies were provoked and decided to attack you.</letterInfoText>
@@ -157,8 +156,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_WindBlessing</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_WindBless</workerClass>
+    <defName>WindBlessing</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.WindBless</workerClass>
     <label>whirlwind</label>
     <effectDesc>the duration of heatwave and the toxic fallout will be reduced and wind turbine output be increased.</effectDesc>
     <letterInfoText>Refreshing breeze sweeps across your colony.</letterInfoText>
@@ -166,16 +165,16 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_BountifulHarvest</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Harvest</workerClass>
+    <defName>BountifulHarvest</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Harvest</workerClass>
     <label>bountiful harvest</label>
     <effectDesc>make some of your sowed crops to grow</effectDesc>
   </RitualAttachableOutcomeEffectDef>
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_TreeConnection</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_TreeConnection</workerClass>
+    <defName>TreeConnection</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.TreeConnection</workerClass>
     <label>strengthen tree connection </label>
     <effectDesc>make some of your sowed crops to grow</effectDesc>
     <requiredMemeAny>
@@ -186,8 +185,8 @@
   <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
-    <defName>Sinnamon_Random</defName>
-    <workerClass>RitualRewards.Sinnamon_Ritual.RitualAttachableOutcomeEffectWorker_Random</workerClass>
+    <defName>Random</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Random</workerClass>
     <label>Random Reward</label>
     <effectDesc>any random rewards will be given.</effectDesc>
   </RitualAttachableOutcomeEffectDef>

@@ -1,19 +1,23 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
 
-namespace RitualRewards.Sinnamon_Ritual;
+namespace RitualRewards.RitualAttachableOutcomeEffectWorkers;
 
-public class RitualAttachableOutcomeEffectWorker_SpaceshipChunk : RitualAttachableOutcomeEffectWorker
+public class Taunt : RitualAttachableOutcomeEffectWorker
 {
     public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
     {
+        if (jobRitual is null)
+            throw new ArgumentNullException(nameof(jobRitual));
+
         IncidentParms parms = new()
         {
             target = jobRitual.Map,
-            sendLetter = false
+            points = jobRitual.Map.PlayerWealthForStoryteller / 500f
         };
-        _ = IncidentDefOf.ShipChunkDrop.Worker.TryExecute(parms);
+        _ = IncidentDefOf.RaidEnemy.Worker.TryExecute(parms);
         extraOutcomeDesc = def.letterInfoText;
     }
 }

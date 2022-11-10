@@ -1,13 +1,17 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
 
-namespace RitualRewards.Sinnamon_Ritual;
+namespace RitualRewards.RitualAttachableOutcomeEffectWorkers;
 
-public class RitualAttachableOutcomeEffectWorker_TreeConnection : RitualAttachableOutcomeEffectWorker
+public class TreeConnection : RitualAttachableOutcomeEffectWorker
 {
     public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
     {
+        if (totalPresence is null)
+            throw new ArgumentNullException(nameof(totalPresence));
+
         foreach (Pawn key in totalPresence.Keys)
         {
             foreach (Thing connectedThing in key.connections.ConnectedThings)

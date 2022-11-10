@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <GameConditionDef>
-    <defName>Sinnamon_WindBlessing</defName>
+    <defName>WindBlessing</defName>
     <conditionClass>GameCondition_ForceWeather</conditionClass>
     <label>blessing of the Wind</label>
     <description>Your ritual called in the whirling wind.</description>
@@ -12,7 +12,7 @@
   </GameConditionDef>
 
   <GameConditionDef>
-    <defName>Sinnamon_SunBlessing</defName>
+    <defName>SunBlessing</defName>
     <conditionClass>GameCondition_ForceWeather</conditionClass>
     <label>blessing of the Sun</label>
     <description>Your ritual brought the brilliance of the sun.</description>
@@ -23,7 +23,7 @@
   </GameConditionDef>
 
   <GameConditionDef>
-    <defName>Sinnamon_RainBlessing</defName>
+    <defName>RainBlessing</defName>
     <conditionClass>GameCondition_ForceWeather</conditionClass>
     <label>blessing of the Rain</label>
     <description>Your ritual brought the dark clouds.</description>
@@ -35,8 +35,8 @@
 
 
   <GameConditionDef>
-    <defName>Sinnamon_Aurora</defName>
-    <conditionClass>RitualRewards.Sinnamon_Ritual.Sinnamon_GameCondition_Aurora</conditionClass>
+    <defName>Aurora</defName>
+    <conditionClass>RitualRewards.GameConditions.Aurora</conditionClass>
     <label>dark aurora</label>
     <description>An aurora is lighting up the sky. The breathtaking display will boost the mood of anyone outside to see it.</description>
     <endMessage>The aurora is ending.</endMessage>
