@@ -12,7 +12,7 @@ public class Dust : RitualAttachableOutcomeEffectWorker
         if (jobRitual is null)
             throw new ArgumentNullException(nameof(jobRitual));
 
-        List<Thing> list = jobRitual.Map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree);
+        List<Thing> list = jobRitual.Map.listerThings.ThingsInGroup(ThingRequestGroup.Corpse);
         for (int num = list.Count - 1; num >= 0; num--)
         {
             Corpse corpse = (Corpse)list[num];
