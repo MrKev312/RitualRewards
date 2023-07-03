@@ -38,10 +38,10 @@
     <label>call venerated animal</label>
     <effectDesc>lure a venerated animal.</effectDesc>
     <modExtensions>
-      <li Class="RitualRewards.Ritual.RitualExtension">
-        <forbiddenMemeAny>
+      <li Class="RitualRewards.RitualExtension">
+        <ForbiddenMemeAny>
           <li>HumanPrimacy</li>
-        </forbiddenMemeAny>
+        </ForbiddenMemeAny>
       </li>
     </modExtensions>
   </RitualAttachableOutcomeEffectDef>
@@ -129,12 +129,12 @@
     <effectDesc>it immediately ends rain and eclipse, and reduces the duration of coldsnap, volcanic winter. </effectDesc>
     <letterInfoText>The sun shines upon your colony.</letterInfoText>
     <modExtensions>
-      <li Class="RitualRewards.Ritual.RitualExtension">
-        <forbiddenMemeAny>
+      <li Class="RitualRewards.RitualExtension">
+        <ForbiddenMemeAny>
           <li>Blindsight</li>
           <li>Darkness</li>
           <li>Tunneler</li>
-        </forbiddenMemeAny>
+        </ForbiddenMemeAny>
       </li>
     </modExtensions>
   </RitualAttachableOutcomeEffectDef>

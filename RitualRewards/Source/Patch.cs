@@ -16,7 +16,7 @@ internal static class Patch
         if (!__instance.HasModExtension<RitualExtension>())
             return;
 
-        IList<MemeDef> forbiddenMemeAny = __instance.GetModExtension<RitualExtension>().ForbiddenMemeAny;
+        List<MemeDef> forbiddenMemeAny = __instance.GetModExtension<RitualExtension>().ForbiddenMemeAny;
         if (!forbiddenMemeAny.NullOrEmpty() && ritual.ideo.memes.SharesElementWith(forbiddenMemeAny))
         {
             string text = forbiddenMemeAny.Select((m) => m.label.ResolveTags()).ToCommaList();
