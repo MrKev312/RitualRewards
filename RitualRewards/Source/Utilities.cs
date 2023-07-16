@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using RimWorld;
 using Verse;
 
@@ -16,22 +17,22 @@ public static class Utilities
         if (endingGC is null)
             throw new ArgumentNullException(nameof(endingGC));
 
-        string text = string.Empty;
+        StringBuilder text = new();
         foreach (GameCondition currentCondition in currentConditions)
         {
             if (reducingGC.Contains(currentCondition.def.defName))
             {
-                text += reducingMessage.Translate(currentCondition.def.label);
+                text.Append(reducingMessage.Translate(currentCondition.def.label));
                 currentCondition.Duration /= divider;
             }
 
             if (endingGC.Contains(currentCondition.def.defName))
             {
-                text += endingMessage.Translate(currentCondition.def.label);
+                text.Append(endingMessage.Translate(currentCondition.def.label));
                 currentCondition.End();
             }
         }
 
-        return text;
+        return text.ToString();
     }
 }

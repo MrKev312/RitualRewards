@@ -13,9 +13,9 @@ public class Dust : RitualAttachableOutcomeEffectWorker
             throw new ArgumentNullException(nameof(jobRitual));
 
         List<Thing> list = jobRitual.Map.listerThings.ThingsInGroup(ThingRequestGroup.Corpse);
-        for (int num = list.Count - 1; num >= 0; num--)
+        for (int i = list.Count - 1; i >= 0; i--)
         {
-            Corpse corpse = (Corpse)list[num];
+            Corpse corpse = (Corpse)list[i];
             if ((int)corpse.GetRotStage() >= 1)
             {
                 corpse.DeSpawn();

@@ -34,8 +34,8 @@ public class SmallAmbrosiaSprout : IncidentWorker
             return false;
 
         Thing thing = null;
-        int num = Rand.Range((int)parms.points % 100, (int)parms.points / 100);
-        for (int i = 0; i < num; i++)
+        int ambrosiaSproutCount = Rand.Range((int)parms.points % 100, (int)parms.points / 100);
+        for (int i = 0; i < ambrosiaSproutCount; i++)
         {
             IntVec3 root = cell;
             Map map2 = map;
