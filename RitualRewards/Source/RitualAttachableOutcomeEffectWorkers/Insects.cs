@@ -12,7 +12,7 @@ public class Insects : RitualAttachableOutcomeEffectWorker
 
     private const float regularOutcome = 5f;
 
-    public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
+    public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, RitualOutcomePossibility outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
     {
         if (jobRitual is null)
             throw new ArgumentNullException(nameof(jobRitual));

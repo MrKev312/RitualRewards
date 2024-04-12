@@ -7,7 +7,7 @@ namespace RitualRewards.RitualAttachableOutcomeEffectWorkers;
 
 public class Random : RitualAttachableOutcomeEffectWorker
 {
-    public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
+    public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, RitualOutcomePossibility outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
     {
         IEnumerable<RitualAttachableOutcomeEffectWorker> list =
             from defs in DefDatabase<RitualAttachableOutcomeEffectDef>.AllDefs
