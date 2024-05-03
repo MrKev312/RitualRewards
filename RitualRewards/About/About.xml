@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>More Ritual Rewards (1.4)</name>
+  <name>More Ritual Rewards (1.4+)</name>
   <author>Sinnamon, MrKev</author>
   <packageId>Sinnamon.MoreRitualRewards</packageId>
   <url>https://github.com/MrKev312/RitualRewards</url>
   <supportedVersions>
     <li>1.4</li>
+    <li>1.5</li>
   </supportedVersions>
   <description>
 Tired of having only a few possible rewards?\nthis is the answer for your concerns!\nIt adds another handful!!!! and now you get to have 2 handful possible rewards :D
