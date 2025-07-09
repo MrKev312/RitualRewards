@@ -20,13 +20,13 @@ public static class Utilities
         StringBuilder text = new();
         foreach (GameCondition currentCondition in currentConditions)
         {
-            if (reducingGC.Contains(currentCondition.def.defName))
+            if (reducingGC.Contains(currentCondition.def.defName) && !currentCondition.Permanent)
             {
                 _ = text.Append(reducingMessage.Translate(currentCondition.def.label));
                 currentCondition.Duration /= divider;
             }
 
-            if (endingGC.Contains(currentCondition.def.defName))
+            if (endingGC.Contains(currentCondition.def.defName) && !currentCondition.Permanent)
             {
                 _ = text.Append(endingMessage.Translate(currentCondition.def.label));
                 currentCondition.End();

@@ -45,12 +45,13 @@ public class Insects : RitualAttachableOutcomeEffectWorker
     {
         IntVec3 loc = CellFinder.RandomClosewalkCellNear(intVec, map, 3);
         PawnKindDef pawnKindDef = insectList.RandomElement();
-        Pawn newThing = PawnGenerator.GeneratePawn(
-            new PawnGenerationRequest(
-                kind: pawnKindDef,
-                canGeneratePawnRelations: false,
-                allowGay: false,
-                allowFood: false));
+        PawnGenerationRequest request = new(
+            kind: pawnKindDef,
+            context: PawnGenerationContext.NonPlayer,
+            allowDowned: true,
+            canGeneratePawnRelations: false,
+            colonistRelationChanceFactor: 0);
+        Pawn newThing = PawnGenerator.GeneratePawn(request);
         _ = GenSpawn.Spawn(newThing, loc, map, Rot4.Random);
         return pawnKindDef.RaceProps.baseBodySize;
     }
@@ -71,7 +72,7 @@ public class Insects : RitualAttachableOutcomeEffectWorker
 
         return (
             from pawnKindDef in DefDatabase<PawnKindDef>.AllDefs.AsParallel()
-            where 
+            where
                 pawnKindDef.RaceProps.Insect &&
                 !pawnKindDef.defName.StartsWith("VFEI_VatGrown", StringComparison.Ordinal) &&
                 pawnKindDef.RaceProps.wildness <= 0.8 &&

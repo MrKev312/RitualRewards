@@ -67,7 +67,7 @@ public class SmallAmbrosiaSprout : IncidentWorker
         if (!c.Standable(map) || c.Fogged(map) ||
             map.fertilityGrid.FertilityAt(c) < ThingDefOf.Plant_Ambrosia.plant.fertilityMin ||
             !c.GetRoom(map).PsychologicallyOutdoors || c.GetEdifice(map) != null ||
-            !PlantUtility.GrowthSeasonNow(c, map))
+            !PlantUtility.GrowthSeasonNow(c, map, false))
         {
             return false;
         }

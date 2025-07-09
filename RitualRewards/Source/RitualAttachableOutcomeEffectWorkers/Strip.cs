@@ -27,7 +27,7 @@ public class Strip : RitualAttachableOutcomeEffectWorker
         {
             if (Rand.Chance(chance))
             {
-                item.apparel.DropAll(item.PositionHeld, true, true);
+                item.apparel.DropAll(item.PositionHeld);
                 flag = true;
             }
         }
