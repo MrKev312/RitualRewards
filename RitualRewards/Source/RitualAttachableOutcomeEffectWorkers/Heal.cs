@@ -12,7 +12,11 @@ public class Heal : RitualAttachableOutcomeEffectWorker
     private const float BestOutcomeHealChance = 0.3f;
     private const float RegularOutcomeHealChance = 0.1f;
 
+#if V1_3 || V1_4
+    public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
+#else
     public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, RitualOutcomePossibility outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
+#endif
     {
         if (jobRitual is null)
             throw new ArgumentNullException(nameof(jobRitual));
@@ -29,7 +33,16 @@ public class Heal : RitualAttachableOutcomeEffectWorker
             return;
         }
 
+#if V1_3 || V1_4
+        List<Pawn> candidates = [.. totalPresence.Keys
+            .Where(pawn => pawn.health.hediffSet.hediffs
+            .Any(hediff =>
+                hediff is not Hediff_MissingPart &&
+                hediff.Visible &&
+                hediff.Severity > 0f))];
+#else
         List<Pawn> candidates = [.. totalPresence.Keys.Where(pawn => HealthUtility.TryGetWorstHealthCondition(pawn, out _, out _, null))];
+#endif
 
         if (candidates.Count > 0)
         {

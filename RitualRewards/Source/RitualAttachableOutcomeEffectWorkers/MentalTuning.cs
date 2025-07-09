@@ -16,7 +16,11 @@ public class MentalTuning : RitualAttachableOutcomeEffectWorker
     }
 
     private static readonly TraitPreferences CommonTraitPreferences = new(
-        [TraitDefOf.Joyous, TraitDefOf.GreatMemory, TraitDef.Named("QuickSleeper"), TraitDef.Named("FastLearner"), TraitDef.Named("SpeedOffset"), TraitDefOf.Industriousness, TraitDef.Named("NaturalMood"), TraitDef.Named("Nerves"), TraitDef.Named("Immunity")],
+        [
+#if !V1_3 && !V1_4
+        TraitDefOf.Joyous,
+#endif
+        TraitDefOf.GreatMemory, TraitDef.Named("QuickSleeper"), TraitDef.Named("FastLearner"), TraitDef.Named("SpeedOffset"), TraitDefOf.Industriousness, TraitDef.Named("NaturalMood"), TraitDef.Named("Nerves"), TraitDef.Named("Immunity")],
         [TraitDef.Named("SlowLearner"), TraitDef.Named("SpeedOffset"), TraitDef.Named("NaturalMood"), TraitDef.Named("Nerves"), TraitDefOf.Industriousness, TraitDef.Named("Immunity"), TraitDefOf.Pyromaniac, TraitDefOf.Jealous, TraitDefOf.Greedy, TraitDefOf.Abrasive, TraitDef.Named("Gourmand")]
     );
 
@@ -73,7 +77,11 @@ public class MentalTuning : RitualAttachableOutcomeEffectWorker
         }
     }
 
+#if V1_5 || V1_6
     public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, RitualOutcomePossibility outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
+#else
+    public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
+#endif
     {
         if (totalPresence is null)
             throw new ArgumentNullException(nameof(totalPresence));
