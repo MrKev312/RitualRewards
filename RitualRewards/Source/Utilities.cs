@@ -22,13 +22,13 @@ public static class Utilities
         {
             if (reducingGC.Contains(currentCondition.def.defName))
             {
-                text.Append(reducingMessage.Translate(currentCondition.def.label));
+                _ = text.Append(reducingMessage.Translate(currentCondition.def.label));
                 currentCondition.Duration /= divider;
             }
 
             if (endingGC.Contains(currentCondition.def.defName))
             {
-                text.Append(endingMessage.Translate(currentCondition.def.label));
+                _ = text.Append(endingMessage.Translate(currentCondition.def.label));
                 currentCondition.End();
             }
         }

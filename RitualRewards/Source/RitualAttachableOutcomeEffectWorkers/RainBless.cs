@@ -14,15 +14,13 @@ public class RainBless : RitualAttachableOutcomeEffectWorker
         if (outcome is null)
             throw new ArgumentNullException(nameof(outcome));
 
-        HashSet<string> reducingGC = new()
-            { "ToxicFallout", "VolcanicWinter" };
-        HashSet<string> endingGC = new()
-            { "Drought" };
-        List<GameCondition> list = new();
+        HashSet<string> reducingGC = ["ToxicFallout", "VolcanicWinter"];
+        HashSet<string> endingGC = ["Drought"];
+        List<GameCondition> list = [];
         jobRitual.Map.GameConditionManager.GetAllGameConditionsAffectingMap(jobRitual.Map, list);
         int divider = outcome.BestPositiveOutcome(jobRitual) ? 4 : 2;
         string text = Utilities.ReduceGameCondition(list, reducingGC, endingGC, divider, "RainBlessAffectedEvents", "RainBlessEndedEvents");
-        GameCondition_ForceWeather gameCondition_ForceWeather = (GameCondition_ForceWeather)Activator.CreateInstance(typeof(GameCondition_ForceWeather));
+        GameCondition_ForceWeather gameCondition_ForceWeather = Activator.CreateInstance<GameCondition_ForceWeather>();
         gameCondition_ForceWeather.startTick = Find.TickManager.TicksGame;
         gameCondition_ForceWeather.def = GameConditionDef.Named("RainBlessing");
         gameCondition_ForceWeather.Duration = outcome.BestPositiveOutcome(jobRitual) ? 120000 : 60000;

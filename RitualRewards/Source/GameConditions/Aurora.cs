@@ -13,17 +13,17 @@ public class Aurora : GameCondition
 
     private float curColorTransition;
 
-    private static readonly Color[] Colors = new Color[8]
-    {
-            new Color(0f, 0.5f, 0f),
-            new Color(0.1f, 0.5f, 0f),
-            new Color(0f, 0.5f, 0.2f),
-            new Color(0.3f, 0.5f, 0.3f),
-            new Color(0f, 0.2f, 0.5f),
-            new Color(0f, 0f, 0.5f),
-            new Color(0.5f, 0f, 0f),
-            new Color(0.3f, 0f, 0.5f)
-    };
+    private static readonly Color[] Colors =
+    [
+            new(0f, 0.5f, 0f),
+            new(0.1f, 0.5f, 0f),
+            new(0f, 0.5f, 0.2f),
+            new(0.3f, 0.5f, 0.3f),
+            new(0f, 0.2f, 0.5f),
+            new(0f, 0f, 0.5f),
+            new(0.5f, 0f, 0f),
+            new(0.3f, 0f, 0.5f)
+    ];
 
     public Color CurrentColor => Color.Lerp(Colors[prevColorIndex], Colors[curColorIndex], curColorTransition);
 

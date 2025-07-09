@@ -14,15 +14,13 @@ public class SunBless : RitualAttachableOutcomeEffectWorker
         if (outcome is null)
             throw new ArgumentNullException(nameof(outcome));
 
-        HashSet<string> reducingGC = new()
-            { "ColdSnap", "IceAge", "LongNight" };
-        HashSet<string> endingGC = new()
-            { "Eclipse" };
-        List<GameCondition> list = new();
+        HashSet<string> reducingGC = ["ColdSnap", "IceAge", "LongNight"];
+        HashSet<string> endingGC = ["Eclipse"];
+        List<GameCondition> list = [];
         jobRitual.Map.GameConditionManager.GetAllGameConditionsAffectingMap(jobRitual.Map, list);
         int divider = outcome.BestPositiveOutcome(jobRitual) ? 4 : 2;
         string text = Utilities.ReduceGameCondition(list, reducingGC, endingGC, divider, "SunBlessAffectedEvents", "SunBlessEndedEvents");
-        GameCondition_ForceWeather gameCondition_ForceWeather = (GameCondition_ForceWeather)Activator.CreateInstance(typeof(GameCondition_ForceWeather));
+        GameCondition_ForceWeather gameCondition_ForceWeather = Activator.CreateInstance<GameCondition_ForceWeather>();
         gameCondition_ForceWeather.startTick = Find.TickManager.TicksGame;
         gameCondition_ForceWeather.def = GameConditionDef.Named("SunBlessing");
         gameCondition_ForceWeather.Duration = outcome.BestPositiveOutcome(jobRitual) ? 120000 : 60000;

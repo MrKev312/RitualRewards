@@ -16,13 +16,13 @@ public class Harvest : RitualAttachableOutcomeEffectWorker
             throw new ArgumentNullException(nameof(outcome));
 
         float num = outcome.BestPositiveOutcome(jobRitual) ? 20 : 10;
-        HashSet<string> hashSet = new();
+        HashSet<string> hashSet = [];
         int num2 = 0;
         List<Zone> allZones = jobRitual.Map.zoneManager.AllZones;
-        List<Zone> list = (
+        List<Zone> list = [.. (
             from x in allZones.AsParallel()
             where x.GetType() == typeof(Zone_Growing)
-            select x).InRandomOrder().ToList();
+            select x).InRandomOrder()];
         foreach (Zone item in list)
         {
             string label = ((Zone_Growing)item).GetPlantDefToGrow().label;

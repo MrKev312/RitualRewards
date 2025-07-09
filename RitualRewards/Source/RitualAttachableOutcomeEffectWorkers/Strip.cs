@@ -18,7 +18,7 @@ public class Strip : RitualAttachableOutcomeEffectWorker
         extraOutcomeDesc = string.Empty;
         bool flag = false;
         float chance = outcome.BestPositiveOutcome(jobRitual) ? 0.33f : 0.75f;
-        List<Pawn> enumerable = jobRitual.Map.mapPawns.AllPawnsSpawned.Where(pawn => pawn.Faction.HostileTo(Faction.OfPlayer)).ToList();
+        List<Pawn> enumerable = [.. jobRitual.Map.mapPawns.AllPawnsSpawned.Where(pawn => pawn.Faction.HostileTo(Faction.OfPlayer))];
 
         if (enumerable.Count == 0)
             return;
