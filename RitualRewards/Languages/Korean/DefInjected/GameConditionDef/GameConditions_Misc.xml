@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+
 	<WindBlessing.label>바람의 축복</WindBlessing.label>
 	<WindBlessing.description>의식의 결과로 돌개바람이 불어옵니다.</WindBlessing.description>
 	<WindBlessing.endMessage>돌개바람이 멎습니다.</WindBlessing.endMessage>
 	<WindBlessing.letterText>선선한 돌개바람이 불어와 유독성 낙진과 폭염의 지속시간을 줄여주고, 풍력발전의 효율을 높여줍니다.\n\n하루동안 지속됩니다.</WindBlessing.letterText>
 
-	<WindBlessing.label>태양의 축복</WindBlessing.label>
-	<WindBlessing.description>의식의 결과로 태양이 빛을 냅니다.</WindBlessing.description>
-	<WindBlessing.endMessage>태양이 다시 돌아옵니다.</WindBlessing.endMessage>
-	<WindBlessing.letterText>태양이 따듯한 빛을 내뿜으며 한파와 화산겨울의 지속시간을 반감시키고, 비와 일식을 즉시 중단시킵니다.\n\n하루동안 지속됩니다.</WindBlessing.letterText>
+	<SunBlessing.label>태양의 축복</SunBlessing.label>
+	<SunBlessing.description>의식의 결과로 태양이 빛을 냅니다.</SunBlessing.description>
+	<SunBlessing.endMessage>태양이 다시 돌아옵니다.</SunBlessing.endMessage>
+	<SunBlessing.letterText>태양이 따듯한 빛을 내뿜으며 한파와 화산겨울의 지속시간을 반감시키고, 비와 일식을 즉시 중단시킵니다.\n\n하루동안 지속됩니다.</SunBlessing.letterText>
+
 </LanguageData>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+
   <GameConditionDef>
     <defName>WindBlessing</defName>
     <conditionClass>GameCondition_ForceWeather</conditionClass>
@@ -33,7 +34,6 @@
     <canBePermanent>false</canBePermanent>
   </GameConditionDef>
 
-
   <GameConditionDef>
     <defName>Aurora</defName>
     <conditionClass>RitualRewards.GameConditions.Aurora</conditionClass>
@@ -44,4 +44,5 @@
     <letterDef>PositiveEvent</letterDef>
     <canBePermanent>true</canBePermanent>
   </GameConditionDef>
+
 </Defs>

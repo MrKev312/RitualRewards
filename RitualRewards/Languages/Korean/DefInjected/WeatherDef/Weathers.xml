@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+
 	<Windy.label>돌개바람</Windy.label>
 	<Windy.description>풍력발전의 효율이 높아집니다.</Windy.description>
+	
 </LanguageData>

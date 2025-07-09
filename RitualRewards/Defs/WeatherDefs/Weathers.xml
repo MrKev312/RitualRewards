@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+
   <WeatherDef>
     <defName>Windy</defName>
     <label>whirlwind</label>
     <description>Wind is increasing the wind turbine output.</description>
-	<temperatureRange>99~100</temperatureRange>
-	<windSpeedFactor>1.5</windSpeedFactor>
-	<windSpeedOffset>2</windSpeedOffset>
+    <temperatureRange>99~100</temperatureRange>
+    <windSpeedFactor>1.5</windSpeedFactor>
+    <windSpeedOffset>2</windSpeedOffset>
     <repeatable>true</repeatable>
     <favorability>Good</favorability>
     <perceivePriority>2</perceivePriority>
     <ambientSounds>
       <li>Ambient_Wind_Clear</li>
     </ambientSounds>   
-	<durationRange>60000~60001</durationRange>
+    <durationRange>60000~60001</durationRange>
     <!-- Colors are Clear -->
     <skyColorsDay>
       <sky>(1,1,1)</sky>
@@ -40,4 +41,5 @@
       <saturation>1.25</saturation>
     </skyColorsNightMid>
   </WeatherDef>
+  
 </Defs>

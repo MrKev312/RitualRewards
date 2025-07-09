@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+
   <RitualAttachableOutcomeEffectDef>
     <defName>AmbrosiaBlessing</defName>
     <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Ambrosia</workerClass>
@@ -12,7 +13,6 @@
       <li>HighLife</li>
     </requiredMemeAny>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>RitualMeteor</defName>
@@ -21,16 +21,14 @@
     <effectDesc>causes a meteor to drop, which you can mine.</effectDesc>
     <letterInfoText>The meteor has been called.</letterInfoText>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>Aurora</defName>
     <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Aurora</workerClass>
-    <label>(WIP)aurora borealis</label>
+    <label>aurora borealis</label>
     <effectDesc>causes the aurora to appear for a few days.</effectDesc>
     <letterInfoText>Aurora lights up the sky, and it will last for</letterInfoText>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>CallVenerated</defName>
@@ -45,7 +43,6 @@
       </li>
     </modExtensions>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>DustToDust</defName>
@@ -54,12 +51,11 @@
     <effectDesc>rotting or desiccated corpses will be destroyed.</effectDesc>
     <letterInfoText>Ashes to ashes, dust to dust. </letterInfoText>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>EclipseBlessing</defName>
     <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Eclipse</workerClass>
-    <label>extingush the Sun</label>
+    <label>extinguish the Sun</label>
     <effectDesc>it causes the eclipse, ending the solar flare immediately.</effectDesc>
     <letterInfoText>The sun is cowering from your rituals.</letterInfoText>
     <requiredMemeAny>
@@ -68,16 +64,14 @@
       <li>Darkness</li>
     </requiredMemeAny>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>RitualTrader</defName>
     <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Trader</workerClass>
     <label>invite trader</label>
-    <effectDesc>gain attention of a nearby tradership to allow your colones to trade with using the comm console.</effectDesc>
-    <letterInfoText>The tradership noticed your presense.</letterInfoText>
+    <effectDesc>gain attention of a nearby tradership to allow your colonies to trade with using the comm console.</effectDesc>
+    <letterInfoText>The tradership noticed your presence.</letterInfoText>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>RitualStrip</defName>
@@ -88,7 +82,6 @@
       <li>Nudism</li>
     </requiredMemeAny>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>Raincalling</defName>
@@ -97,7 +90,6 @@
     <effectDesc>starts rain, and reduce the duration of toxic fallout and volcanic winter.</effectDesc>
     <letterInfoText>Clouds gather upon your colony.</letterInfoText>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>RitualSpaceshipChunk</defName>
@@ -106,7 +98,6 @@
     <effectDesc>causes spaceship chunks to drop to deconstruct and gain resources.</effectDesc>
     <letterInfoText>An orbiting piece of spaceship chunk has been brought down.</letterInfoText>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>SummonInsects</defName>
@@ -120,7 +111,6 @@
       <li>NaturePrimacy</li>
     </requiredMemeAny>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>SunBlessing</defName>
@@ -138,7 +128,6 @@
       </li>
     </modExtensions>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>RitualTaunt</defName>
@@ -153,7 +142,6 @@
       <li>Cannibal</li>
     </requiredMemeAny>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>WindBlessing</defName>
@@ -162,7 +150,6 @@
     <effectDesc>the duration of heatwave and the toxic fallout will be reduced and wind turbine output be increased.</effectDesc>
     <letterInfoText>Refreshing breeze sweeps across your colony.</letterInfoText>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>BountifulHarvest</defName>
@@ -170,19 +157,17 @@
     <label>bountiful harvest</label>
     <effectDesc>make some of your sowed crops to grow</effectDesc>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>TreeConnection</defName>
     <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.TreeConnection</workerClass>
     <label>strengthen tree connection </label>
-    <effectDesc>make some of your sowed crops to grow</effectDesc>
+    <effectDesc>Strengthens the connection to Gauranlen trees, fully restoring their connection strength.</effectDesc>
     <requiredMemeAny>
       <li>TreeConnection</li>
       <li>NaturePrimacy</li>
     </requiredMemeAny>
   </RitualAttachableOutcomeEffectDef>
-  <!--========================================================================================-->
 
   <RitualAttachableOutcomeEffectDef>
     <defName>Random</defName>
@@ -190,4 +175,21 @@
     <label>Random Reward</label>
     <effectDesc>any random rewards will be given.</effectDesc>
   </RitualAttachableOutcomeEffectDef>
+
+  <RitualAttachableOutcomeEffectDef>
+    <defName>MentalTuning</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.MentalTuning</workerClass>
+    <label>mental tuning</label>
+    <effectDesc>50% (75% if best result) chance to remove a trait considered bad in your ideologion, or add what is considered good.</effectDesc>
+    <letterInfoText>There was a change in heart amongst who participated in the ceremony.</letterInfoText>
+  </RitualAttachableOutcomeEffectDef>
+
+  <RitualAttachableOutcomeEffectDef>
+    <defName>Heal</defName>
+    <workerClass>RitualRewards.RitualAttachableOutcomeEffectWorkers.Heal</workerClass>
+    <label>heal</label>
+    <effectDesc>heal a random participant's wound with a very low chance.(10%/30%)</effectDesc>
+    <letterInfoText>A miracle! {0}'s wound just disappeared before your eyes!</letterInfoText>
+  </RitualAttachableOutcomeEffectDef>
+
 </Defs>

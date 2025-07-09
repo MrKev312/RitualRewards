@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
 	<WindBlessing.label>돌개바람</WindBlessing.label>
 	<WindBlessing.effectDesc>폭염의 지속시간을 반감시키고, 풍력발전 효율을 높입니다.</WindBlessing.effectDesc>
 	<WindBlessing.letterInfoText>시원한 바람이 정착지를 휩씁니다.</WindBlessing.letterInfoText>
@@ -47,10 +48,22 @@
 	<CallVenerated.label>신성한 동물 부르기</CallVenerated.label>
 	<CallVenerated.effectDesc>신성한 동물을 부릅니다.</CallVenerated.effectDesc>
 	
+	<CallExotic.label>희귀한 동물 부르기</CallExotic.label>
+	<CallExotic.effectDesc>희귀한 동물을 부릅니다.</CallExotic.effectDesc>
+	
 	<RitualStrip.label>무장해제</RitualStrip.label>
 	<RitualStrip.effectDesc>적 일부가 옷을 벗습니다.</RitualStrip.effectDesc>
 	
 	<Aurora.label>오로라</Aurora.label>
 	<Aurora.effectDesc>오로라를 생성합니다.</Aurora.effectDesc>
 	<Aurora.letterInfoText>하늘에서 빛이 일렁입니다.</Aurora.letterInfoText>
+
+	<MentalTuning.label>정신 개화</MentalTuning.label>
+	<MentalTuning.effectDesc>50%(75%) 확률로 한 정착민의 나쁜 특성을 없애거나 좋은 특성을 추가합니다.</MentalTuning.effectDesc>
+	<MentalTuning.letterInfoText>의식의 결과로 누군가의 마음이 크게 바뀌고 있습니다.</MentalTuning.letterInfoText>
+
+	<Heal.label>회복</Heal.label>
+	<Heal.effectDesc>낮은 확률로 한 정착민의 가장 심각한 상처를 치료합니다.</Heal.effectDesc>
+	<Heal.letterInfoText>기적입니다! {0}의 상처가 아물고 있습니다!</Heal.letterInfoText>
+	
 </LanguageData>
