@@ -35,7 +35,7 @@ public class Heal : RitualAttachableOutcomeEffectWorker
         {
             Pawn healTarget = candidates.RandomElement();
             _ = HealthUtility.FixWorstHealthCondition(healTarget);
-            extraOutcomeDesc = string.Format(CultureInfo.InvariantCulture, def.letterInfoText, healTarget.Name);
+            extraOutcomeDesc = string.Format(CultureInfo.InvariantCulture, def.letterInfoText, healTarget.LabelShort);
         }
         else
         {

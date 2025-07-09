@@ -45,7 +45,7 @@ public class CallVenerated : RitualAttachableOutcomeEffectWorker
         Map map = jobRitual.Map;
         if (!RCellFinder.TryFindRandomPawnEntryCell(out IntVec3 result, map, CellFinder.EdgeRoadChance_Animal))
         {
-            extraOutcomeDesc = def.letterInfoText + "VeneratedAnimalFailNoEntry".Translate();
+            extraOutcomeDesc = "VeneratedAnimalFailNoEntry".Translate();
             return;
         }
 
@@ -68,7 +68,7 @@ public class CallVenerated : RitualAttachableOutcomeEffectWorker
 
             if (pawnKindDef == null)
             {
-                extraOutcomeDesc = def.letterInfoText + "VeneratedAnimalFailTemperature".Translate(outcome.label);
+                extraOutcomeDesc = "VeneratedAnimalFailTemperature".Translate(outcome.label);
                 return;
             }
         }

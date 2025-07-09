@@ -25,7 +25,7 @@ public class MentalTuning : RitualAttachableOutcomeEffectWorker
         { MemeDefOf.Tunneler, new TraitPreferences([TraitDefOf.Undergrounder]) },
         { MemeDefOf.MaleSupremacy, new TraitPreferences(null, [TraitDefOf.DislikesMen]) },
         { MemeDefOf.FemaleSupremacy, new TraitPreferences(null, [TraitDefOf.DislikesWomen]) },
-        { DefDatabase<MemeDef>.GetNamed("Individualism"), new TraitPreferences(null, null, [TraitDefOf.Greedy, TraitDefOf.Jealous]) },
+        { DefDatabase<MemeDef>.GetNamed("Individualist"), new TraitPreferences(null, null, [TraitDefOf.Greedy, TraitDefOf.Jealous]) },
         { DefDatabase<MemeDef>.GetNamed("Cannibal"), new TraitPreferences([TraitDefOf.Psychopath], [TraitDefOf.Kind]) },
         { DefDatabase<MemeDef>.GetNamed("HighLife"), new TraitPreferences([TraitDefOf.DrugDesire], [TraitDefOf.DrugDesire]) },
         { DefDatabase<MemeDef>.GetNamed("Raider"), new TraitPreferences([TraitDefOf.Psychopath], [TraitDefOf.Kind]) }
@@ -82,10 +82,10 @@ public class MentalTuning : RitualAttachableOutcomeEffectWorker
         if (outcome is null)
             throw new ArgumentNullException(nameof(outcome));
 
+        extraOutcomeDesc = null;
         bool isBest = outcome.BestPositiveOutcome(jobRitual);
-        if ((!isBest && Rand.Chance(0.5f)) || (isBest && Rand.Chance(0.25f)))
+        if (!Rand.Chance(isBest ? 0.75f : 0.5f))
         {
-            extraOutcomeDesc = null;
             return;
         }
 
@@ -97,34 +97,30 @@ public class MentalTuning : RitualAttachableOutcomeEffectWorker
         foreach (MemeDef meme in memes)
         {
             unfavoredTraits.UnionWith(MemeTraitPreferences[meme].UnfavoredTraits);
-            unfavoredTraits.UnionWith(MemeTraitPreferences[meme].IgnoredCommonUnfavoredTraits);
+            ignoredTraits.UnionWith(MemeTraitPreferences[meme].IgnoredCommonUnfavoredTraits);
         }
 
-        foreach (TraitDef trait in CommonTraitPreferences.UnfavoredTraits)
-        {
-            if (!ignoredTraits.Contains(trait))
-                _ = unfavoredTraits.Add(trait);
-        }
+        unfavoredTraits.UnionWith(CommonTraitPreferences.UnfavoredTraits.Where(t => !ignoredTraits.Contains(t)));
 
         List<Pawn> pawnsWithUnfavored = [.. pawns.Where(pawn => pawn.story.traits.allTraits.Any(trait => unfavoredTraits.Contains(trait.def)))];
 
         if (pawnsWithUnfavored.Count > 0)
         {
             Pawn pawn = pawnsWithUnfavored.RandomElement();
-            Trait traitToRemove = pawn.story.traits.allTraits
+            Trait traitToAffect = pawn.story.traits.allTraits
                 .Where(t => unfavoredTraits.Contains(t.def))
-                .RandomElementByWeight(t => t.def.GetGenderSpecificCommonality(Gender.None));
+                .RandomElementByWeight(t => t.def.GetGenderSpecificCommonality(pawn.gender));
 
-            pawn.story.traits.RemoveTrait(traitToRemove);
+            pawn.story.traits.RemoveTrait(traitToAffect);
 
-            if (!traitToRemove.def.degreeDatas.NullOrEmpty() && traitToRemove.Degree < -1)
+            if (!traitToAffect.def.degreeDatas.NullOrEmpty() && traitToAffect.Degree < -1)
             {
-                pawn.story.traits.GainTrait(new Trait(traitToRemove.def, traitToRemove.Degree + 1));
-                extraOutcomeDesc = "MindTuneImprove".Translate(pawn.Name.ToStringShort, jobRitual.RitualLabel, traitToRemove.def.label);
+                pawn.story.traits.GainTrait(new Trait(traitToAffect.def, traitToAffect.Degree + 1));
+                extraOutcomeDesc = "MindTuneImprove".Translate(pawn.Name.ToStringShort, jobRitual.RitualLabel, traitToAffect.def.LabelCap);
             }
             else
             {
-                extraOutcomeDesc = "MindTuneRemove".Translate(pawn.Name.ToStringShort, jobRitual.RitualLabel, traitToRemove.def.label);
+                extraOutcomeDesc = "MindTuneRemove".Translate(pawn.Name.ToStringShort, jobRitual.RitualLabel, traitToAffect.def.LabelCap);
             }
 
             return;
@@ -133,52 +129,45 @@ public class MentalTuning : RitualAttachableOutcomeEffectWorker
         HashSet<TraitDef> favoredTraits = [];
         foreach (MemeDef meme in memes)
         {
-            foreach (TraitDef trait in MemeTraitPreferences[meme].FavoredTraits)
-            {
-                if (!(trait.degreeDatas.NullOrEmpty() && unfavoredTraits.Contains(trait)))
-                    _ = favoredTraits.Add(trait);
-            }
+            favoredTraits.UnionWith(MemeTraitPreferences[meme].FavoredTraits);
         }
 
-        Pawn pawnToGiveTrait = pawns.RandomElementByWeight(p => 1f / p.story.traits.allTraits.Count);
-        int newTraitDegree = 0;
-        TraitDef traitToAdd = favoredTraits.RandomElementByWeight(trait =>
-        {
-            if (!trait.degreeDatas.NullOrEmpty())
-            {
-                int highestDegree = trait.degreeDatas.Max(d => d.degree);
-                if (pawnToGiveTrait.story.traits.HasTrait(trait) && pawnToGiveTrait.story.traits.GetTrait(trait).Degree == highestDegree)
-                    return 0;
-            }
-            else if (pawnToGiveTrait.story.traits.HasTrait(trait))
-            {
-                return 0;
-            }
+        favoredTraits.UnionWith(CommonTraitPreferences.FavoredTraits);
 
-            return trait.GetGenderSpecificCommonality(Gender.None);
-        });
+        Pawn pawnToGiveTrait = pawns.RandomElementByWeight(p => 1f / (p.story.traits.allTraits.Count + 1));
+
+        TraitDef traitToAdd = favoredTraits.Where(traitDef =>
+        {
+            Trait existing = pawnToGiveTrait.story.traits.GetTrait(traitDef);
+            if (existing == null)
+                return true;
+            if (traitDef.degreeDatas.NullOrEmpty())
+                return false;
+            return existing.Degree < traitDef.degreeDatas.Max(d => d.degree);
+        }).ToList().RandomElementByWeightWithFallback(t => t.GetGenderSpecificCommonality(pawnToGiveTrait.gender));
 
         if (traitToAdd != null)
         {
-            if (traitToAdd.degreeDatas.NullOrEmpty())
+            Trait existingTrait = pawnToGiveTrait.story.traits.GetTrait(traitToAdd);
+            if (existingTrait != null)
             {
-                Trait traitToRemove = pawnToGiveTrait.story.traits.allTraits.Find(t => t.def == traitToAdd);
-                newTraitDegree = traitToRemove != null ? traitToRemove.Degree + 1 : 0;
-                if (traitToRemove != null)
-                    pawnToGiveTrait.story.traits.RemoveTrait(traitToRemove);
-
-                extraOutcomeDesc = "MindTuneImprove".Translate(pawnToGiveTrait.Name.ToStringShort, jobRitual.RitualLabel, traitToAdd.label);
+                // Upgrade existing trait
+                int newDegree = existingTrait.Degree + 1;
+                pawnToGiveTrait.story.traits.RemoveTrait(existingTrait);
+                pawnToGiveTrait.story.traits.GainTrait(new Trait(traitToAdd, newDegree));
+                extraOutcomeDesc = "MindTuneImprove".Translate(pawnToGiveTrait.Name.ToStringShort, jobRitual.RitualLabel, traitToAdd.LabelCap);
             }
             else
             {
-                extraOutcomeDesc = "MindTuneRemove".Translate(pawnToGiveTrait.Name.ToStringShort, jobRitual.RitualLabel, traitToAdd.label);
+                // Add new trait
+                int newDegree = traitToAdd.degreeDatas.NullOrEmpty() ? 0 : traitToAdd.degreeDatas.Min(d => d.degree);
+                pawnToGiveTrait.story.traits.GainTrait(new Trait(traitToAdd, newDegree));
+                extraOutcomeDesc = "MindTuneAdd".Translate(pawnToGiveTrait.Name.ToStringShort, jobRitual.RitualLabel, traitToAdd.LabelCap);
             }
-
-            pawnToGiveTrait.story.traits.GainTrait(new Trait(traitToAdd, newTraitDegree));
         }
         else
         {
-            extraOutcomeDesc = null;
+            extraOutcomeDesc = "MindTuneNoFavoredTrait".Translate();
         }
     }
 }

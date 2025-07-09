@@ -21,7 +21,7 @@ public class SmallAmbrosiaSprout : IncidentWorker
 
         Map map = (Map)parms.target;
 
-        return map.weatherManager.growthSeasonMemory.GrowthSeasonOutdoorsNow && TryFindRootCell(map, out _);
+        return PlantUtility.GrowthSeasonNow(map, ThingDefOf.Plant_HealrootWild) && TryFindRootCell(map, out _);
     }
 
     protected override bool TryExecuteWorker(IncidentParms parms)
@@ -67,7 +67,7 @@ public class SmallAmbrosiaSprout : IncidentWorker
         if (!c.Standable(map) || c.Fogged(map) ||
             map.fertilityGrid.FertilityAt(c) < ThingDefOf.Plant_Ambrosia.plant.fertilityMin ||
             !c.GetRoom(map).PsychologicallyOutdoors || c.GetEdifice(map) != null ||
-            !PlantUtility.GrowthSeasonNow(c, map, false))
+            !PlantUtility.GrowthSeasonNow(c, map, ThingDefOf.Plant_Ambrosia))
         {
             return false;
         }

@@ -75,7 +75,7 @@ public class Insects : RitualAttachableOutcomeEffectWorker
             where
                 pawnKindDef.RaceProps.Insect &&
                 !pawnKindDef.defName.StartsWith("VFEI_VatGrown", StringComparison.Ordinal) &&
-                pawnKindDef.RaceProps.wildness <= 0.8 &&
+                pawnKindDef.RaceProps.trainability != TrainabilityDefOf.None &&
                 map.mapTemperature.SeasonAndOutdoorTemperatureAcceptableFor(pawnKindDef.race) &&
                 Validator(pawnKindDef.race.comps)
             select pawnKindDef).ToList();

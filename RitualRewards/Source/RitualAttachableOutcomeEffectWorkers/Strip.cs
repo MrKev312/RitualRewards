@@ -33,6 +33,6 @@ public class Strip : RitualAttachableOutcomeEffectWorker
         }
 
         if (flag)
-            extraOutcomeDesc = def.letterInfoText + (outcome.BestPositiveOutcome(jobRitual) ? "stripGood".Translate() : "stripGreat".Translate());
+            extraOutcomeDesc = outcome.BestPositiveOutcome(jobRitual) ? "stripGood".Translate() : "stripGreat".Translate();
     }
 }
