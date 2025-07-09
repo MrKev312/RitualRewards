@@ -31,6 +31,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+*.dll
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -396,7 +397,3 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-
-# Specifically only ignore the last version as 1.4 won't be updated anymore
-/RitualRewards/1.5/Assemblies/RitualRewards.dll
-/RitualRewards/1.6/Assemblies/RitualRewards.dll
