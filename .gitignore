@@ -399,3 +399,4 @@ FodyWeavers.xsd
 
 # Specifically only ignore the last version as 1.4 won't be updated anymore
 /RitualRewards/1.5/Assemblies/RitualRewards.dll
+/RitualRewards/1.6/Assemblies/RitualRewards.dll
