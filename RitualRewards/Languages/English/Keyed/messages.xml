@@ -1,23 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+
+  <!-- Generic -->
   <MemeConflicts>Cannot be chosen with the following memes: </MemeConflicts>
-  <InsectNoExit>Insects could not find a place to surface.</InsectNoExit>
+  <Random>Effect of {0} has been triggered by the ritual!\n</Random>
+
+  <!-- Ritual: Ambrosia -->
   <AmbrosiaFailed>Ambrosia couldn't find a place to sprout.</AmbrosiaFailed>
-  <WindBlessAffectedEvents>\nThe refreshing wind blew away some of {0}.</WindBlessAffectedEvents>
-  <RainBlessAffectedEvents>\nThe rain helped to settle the flying particles made by {0}.</RainBlessAffectedEvents>
-  <SunBlessAffectedEvents>\nSun's warmth has reduced the duration of {0}.</SunBlessAffectedEvents>
-  <WindBlessEndedEvents>\nThe whirling wind ended {0}.</WindBlessEndedEvents>
-  <RainBlessEndedEvents>\nThe rain stopped {0}.</RainBlessEndedEvents>
-  <SunBlessEndedEvents>\nThe Sun ended {0}.</SunBlessEndedEvents>
-  <EclipseWithAurora>Sun cowers from your ritual, and leaves its trail as it runs.\nAurora has appeared for a brief moment.</EclipseWithAurora>
+
+  <!-- Ritual: Call Venerated / Exotic -->
   <VeneratedAnimalCalled>A venerated {0} wandered into your colony.</VeneratedAnimalCalled>
   <VeneratedAnimalCalledPair>A pair of {0} wandered into your colony!</VeneratedAnimalCalledPair>
   <VeneratedAnimalCalledBadWeather>A {0} wandered into your colony, despite the bad weather!</VeneratedAnimalCalledBadWeather>
-  <VeneratedAnimalFailTemperature>Although your ritual was {0}, no venerated animal would be able to survive current weather.</VeneratedAnimalFailTemperature>
+  <VeneratedAnimalFailTemperature>Although your ritual was {0}, your venerated animals chose not to come against such weather.</VeneratedAnimalFailTemperature>
   <VeneratedAnimalFailEmptyList>Unfortunately, the ideologion does not have any venerated animal.</VeneratedAnimalFailEmptyList>
-  <VeneratedAnimalFailNoEntry>Venerated animal was intrigued, but couldn't find away to the map.</VeneratedAnimalFailNoEntry>
+  <VeneratedAnimalFailNoEntry>Venerated animals were intrigued, but couldn't find away to the map.</VeneratedAnimalFailNoEntry>
+  <ExoticAnimalCalled>A rare {0} wandered into your colony.</ExoticAnimalCalled>
+  <ExoticAnimalCalledPair>A pair of {0} wandered into your colony!</ExoticAnimalCalledPair>
+  <ExoticAnimalCalledBadWeather>A {0} wandered into your colony, despite the bad weather!</ExoticAnimalCalledBadWeather>
+  <ExoticAnimalFailTemperature>Although your ritual was {0}, it was not enough to lure exotic animals for this weather.</ExoticAnimalFailTemperature>
+  <ExoticAnimalFailNoEntry>Nearby exotic animals were intrigued, but couldn't find away to the map.</ExoticAnimalFailNoEntry>
+  
+  <!-- Ritual: Eclipse -->
+  <EclipseWithAurora>Sun cowers from your ritual, and leaves its trail as it runs.\nAurora has appeared for a brief moment.</EclipseWithAurora>
+  
+  <!-- Ritual: Harvest -->
+  <HarvestResult>{0} of your crops were grown!\nAffected crops includes: {1}</HarvestResult>
+  
+  <!-- Ritual: Heal -->
+  <HealFailNoTarget>You saw the strange formation power flowing through your colonists, but it soon dissipated.</HealFailNoTarget>
+  
+  <!-- Ritual: Insects -->
+  <InsectNoExit>Insects could not find a place to surface.</InsectNoExit>
+  
+  <!-- Ritual: Mental Tuning -->
+  <MindTuneRemove>{0}'s heart was touched during {1}. {0} decided to leave the bad old habit behind. {2} removed</MindTuneRemove>
+  <MindTuneAdd>{0}'s heart was touched during {1}. {0} decided to live upto the expectation. ({2} added)</MindTuneAdd>
+  <MindTuneImprove>{0}'s heart was touched during {1}. {0} felt some change in self. {2} was changed</MindTuneImprove>
+  <MindTuneNoFavoredTrait>Everyone was already living upto their ideal being.</MindTuneNoFavoredTrait>
+
+  <!-- Ritual: Strip -->
   <stripGood>Your Ritual disarmed some of your enemies' apparels.</stripGood>
   <stripGreat>Your Ritual disarmed many of your enemies' apparels.</stripGreat>
-  <HarvestResult>{0} of your crops were grown!\nAffected crops includes: {1}</HarvestResult>
-  <Random>Effect of {0} has been triggered by the ritual!\n</Random>
+  
+  <!-- Game Condition Messages -->
+  <WindBlessAffectedEvents>\nThe refreshing wind blew away some of {0}.</WindBlessAffectedEvents>
+  <WindBlessEndedEvents>\nThe whirling wind ended {0}.</WindBlessEndedEvents>
+  <RainBlessAffectedEvents>\nThe rain helped to settle the flying particles made by {0}.</RainBlessAffectedEvents>
+  <RainBlessEndedEvents>\nThe rain stopped {0}.</RainBlessEndedEvents>
+  <SunBlessAffectedEvents>\nSun's warmth has reduced the duration of {0}.</SunBlessAffectedEvents>
+  <SunBlessEndedEvents>\nThe Sun ended {0}.</SunBlessEndedEvents>
+  
 </LanguageData>

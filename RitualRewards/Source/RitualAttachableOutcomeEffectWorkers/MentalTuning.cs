@@ -120,11 +120,11 @@ public class MentalTuning : RitualAttachableOutcomeEffectWorker
             if (!traitToRemove.def.degreeDatas.NullOrEmpty() && traitToRemove.Degree < -1)
             {
                 pawn.story.traits.GainTrait(new Trait(traitToRemove.def, traitToRemove.Degree + 1));
-                extraOutcomeDesc = "Sinnamon_MindTuneImprove".Translate(pawn.Name, jobRitual.RitualLabel, traitToRemove.def.label);
+                extraOutcomeDesc = "MindTuneImprove".Translate(pawn.Name.ToStringShort, jobRitual.RitualLabel, traitToRemove.def.label);
             }
             else
             {
-                extraOutcomeDesc = "Sinnamon_MindTuneRemove".Translate(pawn.Name, jobRitual.RitualLabel, traitToRemove.def.label);
+                extraOutcomeDesc = "MindTuneRemove".Translate(pawn.Name.ToStringShort, jobRitual.RitualLabel, traitToRemove.def.label);
             }
 
             return;
@@ -167,11 +167,11 @@ public class MentalTuning : RitualAttachableOutcomeEffectWorker
                 if (traitToRemove != null)
                     pawnToGiveTrait.story.traits.RemoveTrait(traitToRemove);
 
-                extraOutcomeDesc = "Sinnamon_MindTuneImprove".Translate(pawnToGiveTrait.Name, jobRitual.RitualLabel, traitToAdd.label);
+                extraOutcomeDesc = "MindTuneImprove".Translate(pawnToGiveTrait.Name.ToStringShort, jobRitual.RitualLabel, traitToAdd.label);
             }
             else
             {
-                extraOutcomeDesc = "Sinnamon_MindTuneRemove".Translate(pawnToGiveTrait.Name, jobRitual.RitualLabel, traitToAdd.label);
+                extraOutcomeDesc = "MindTuneRemove".Translate(pawnToGiveTrait.Name.ToStringShort, jobRitual.RitualLabel, traitToAdd.label);
             }
 
             pawnToGiveTrait.story.traits.GainTrait(new Trait(traitToAdd, newTraitDegree));

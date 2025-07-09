@@ -39,7 +39,7 @@ public class Heal : RitualAttachableOutcomeEffectWorker
         }
         else
         {
-            extraOutcomeDesc = "Sinnamon_HealFailNoTarget".Translate();
+            extraOutcomeDesc = "HealFailNoTarget".Translate();
         }
     }
 }
