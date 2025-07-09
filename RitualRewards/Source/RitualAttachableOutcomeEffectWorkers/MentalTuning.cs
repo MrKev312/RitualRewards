@@ -8,7 +8,7 @@ namespace RitualRewards.RitualAttachableOutcomeEffectWorkers;
 
 public class MentalTuning : RitualAttachableOutcomeEffectWorker
 {
-    private class TraitPreferences(IEnumerable<TraitDef> favored = null, IEnumerable<TraitDef> unfavored = null, IEnumerable<TraitDef> ignored = null)
+    private sealed class TraitPreferences(IEnumerable<TraitDef> favored = null, IEnumerable<TraitDef> unfavored = null, IEnumerable<TraitDef> ignored = null)
     {
         public readonly HashSet<TraitDef> FavoredTraits = [.. favored ?? []];
         public readonly HashSet<TraitDef> UnfavoredTraits = [.. unfavored ?? []];
